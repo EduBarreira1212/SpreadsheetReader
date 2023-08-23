@@ -3,4 +3,12 @@ const arquivo = require("./arquivo.json");
 const { JWT } = require("google-auth-library");
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 
+const SCOPES = [
+    "https://www.googleapis.com/auth/spreadsheets"
+]
 
+const jwt = new JWT({
+    email: credential.client_email,
+    key: credential.private_key,
+    scopes: SCOPES,
+});
