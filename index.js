@@ -12,3 +12,10 @@ const jwt = new JWT({
     key: credential.private_key,
     scopes: SCOPES,
 });
+
+async function GetDoc() {
+    let doc = new GoogleSpreadsheet(arquivo.id, jwt);
+    await doc.loadInfo();
+    return doc;
+}
+
