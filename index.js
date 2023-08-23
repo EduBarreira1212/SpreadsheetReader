@@ -38,3 +38,14 @@ async function PostData(data = {}) {
     })
     return response.json();
 }
+
+async function TrackData() {
+    let users = await ReadWorkSheet();
+    for (const user of users) {
+        await PostData(user);
+        console.log(user);
+    }
+    console.log("Sucess!!");
+}
+
+TrackData();
